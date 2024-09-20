@@ -1,0 +1,68 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# Flask-specific
+instance/
+*.db
+*.sqlite3
+
+# Logs and debug output
+*.log
+*.out
+*.err
+
+# IDE files (Optional - for common IDEs like VSCode, PyCharm, etc.)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test Coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+nosetests.xml
+coverage/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Distribution files
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Flask migrations (optional, if using Flask-Migrate)
+migrations/
+
+# PyInstaller
+# Usually these files are written by a Python script from a template
+*.manifest
+*.spec
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pylint and other static analysis tools
+.pylint.d/
+
+# Ignore plot and uploads directories
+plot/
+uploads/

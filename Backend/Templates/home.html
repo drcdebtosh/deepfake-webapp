@@ -71,6 +71,33 @@
         </form>
 
         <div class="result" id="resultMessage"></div>
+
+        <h2>Deepfake Probability Plot</h2>
+        <div class="image-container">
+            <!-- Display the plot -->
+            {% if plot_url %}
+                <div>
+                    <h2>Deepfake Probability Plot</h2>
+                    <img src="{{ url_for('serve_plot', filename=plot_url.split('/')[-1]) }}" alt="Deepfake Probability Plot">
+                </div>
+            {% endif %}
+    
+            <!-- Display the heat vision -->
+            {% if heat_vision_url %}
+                <div>
+                    <h2>Heat Vision</h2>
+                    <img src="{{ url_for('serve_plot', filename=heat_vision_url.split('/')[-1]) }}" alt="Heat Vision">
+                </div>
+            {% endif %}
+    
+            <!-- Display the reconstructed face -->
+            {% if reconstructed_face_url %}
+                <div>
+                    <h2>Reconstructed Face with Landmarks</h2>
+                    <img src="{{ url_for('serve_plot', filename=reconstructed_face_url.split('/')[-1]) }}" alt="Reconstructed Face">
+                </div>
+            {% endif %}
+        </div>
     </div>
 
     <!-- /////FOOTER///// -->

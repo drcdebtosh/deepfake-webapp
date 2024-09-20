@@ -3,11 +3,13 @@ import os
 import numpy as np
 import cv2
 import mediapipe as mp
+from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv3D, MaxPooling3D, Flatten, Dense, Dropout
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
+import matplotlib.pyplot as plt 
 
 app = Flask(__name__)
 UPLOAD_FOLDER = './uploads'
@@ -142,6 +144,52 @@ def upload_video():
         prediction = cnn_model.predict(sequence)
         
         is_deepfake = prediction > 0.5
+
+        # Plot deepfake probability over time
+        plt.figure(figsize=(12, 6))
+        plt.plot(probas, label='Deepfake Probability')
+        plt.axhline(y=0.5, color='r', linestyle='--', label='Threshold (0.5)')
+        plt.xlabel('Frame')
+        plt.ylabel('Probability')
+        plt.title('Deepfake Probability Over Time')
+        plt.legend()
+        plt.show()
+
+        # Display the first frame of the video with heat vision if deepfake
+        if frames:
+            frame = frames[0]
+            fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(18, 6))
+
+            # Original frame
+            ax1.imshow(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+            ax1.set_title(f"Original Frame")
+            ax1.axis("off")
+
+            # Deepfake classification text
+            ax3.text(0.5, 0.5, f"Deepfake: {'Yes' if is_deepfake else 'No'}", fontsize=15, ha='center', va='center')
+            ax3.axis("off")
+
+            # Heat Vision for deepfake detection
+            if is_deepfake:
+                heat_vision = np.zeros_like(frame, dtype=np.uint8)
+                landmarks = extract_landmarks(frame)
+                if landmarks is not None:
+                    for landmark in landmarks:
+                        cv2.circle(heat_vision, tuple(int(i) for i in landmark), 4, (0, 0, 255), -1)
+                    heat_vision = cv2.addWeighted(frame, 0.3, heat_vision, 0.7, 0)
+                ax2.imshow(cv2.cvtColor(heat_vision, cv2.COLOR_BGR2RGB))
+                ax2.set_title(f"Heat Vision - Deepfake Detected")
+
+                # Reconstruct and display original face with connected landmarks
+                original_frame = reconstruct_original_face(landmarks, frame)
+                ax3.imshow(cv2.cvtColor(original_frame, cv2.COLOR_BGR2RGB))
+                ax3.set_title(f"Reconstructed Face")
+            else:
+                ax2.imshow(np.zeros_like(frame))
+                ax2.set_title(f"Heat Vision - Real Video")
+                ax2.axis("off")
+
+            plt.show()
 
 
         response = {
