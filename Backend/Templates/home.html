@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Detection</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Deep Fake Detection</div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/feedback">Feedback Us</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <div class="header-container">
+            <h1 class="site-title">Welcome to Deepfake Detection</h1>
+            <p class="tagline">Harnessing technology to ensure authenticity.</p>
+            <button href="#uploadForm"id="tryNowButton">Try Now!</button>
+        </div>
+    </header>
+
+    <div class="features">
+        <h2>Features</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <h3>Real-time Detection</h3>
+                <p>Detect deepfakes in real-time with our advanced algorithms.</p>
+            </div>
+            <div class="feature">
+                <h3>High Accuracy</h3>
+                <p>Our model boasts high accuracy rates, ensuring reliable results.</p>
+            </div>
+            <div class="feature">
+                <h3>User-friendly Interface</h3>
+                <p>Experience a smooth and intuitive interface for easy uploads.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>Step 1</h3>
+                <p>Upload your video.</p>
+            </div>
+            <div class="step">
+                <h3>Step 2</h3>
+                <p>Our model analyzes the video.</p>
+            </div>
+            <div class="step">
+                <h3>Step 3</h3>
+                <p>Results are displayed.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Deepfake Detection</h1>
+        <h2>Pleasae Upload The Video Below</h2>
+        <form id="uploadForm">
+            <input type="file" id="videoFile" accept="video/*">
+            <button type="submit" id="submitBtn">Upload Video</button>
+        </form>
+
+        <div class="result" id="resultMessage"></div>
+    </div>
+
+    <!-- /////FOOTER///// -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We specialize in providing cutting-edge<br> deepfake detection technology to ensure content authenticity.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/feedback">Give us Feedback</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Email: <a href="mailto:debatoshofficial@gmail.com">debatoshofficial@gmail.com</a></p>
+                <p>Phone: <a href="tel:6297856449">6297856449</a></p>
+                <p>Address: Kolkata, West Bengal</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Deepfake Detection. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>

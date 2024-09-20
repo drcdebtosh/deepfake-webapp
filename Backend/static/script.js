@@ -36,3 +36,18 @@ document.getElementById('uploadForm').addEventListener('submit', function (event
         console.error('Error:', error);
     });
 });
+
+
+
+
+function toggleMenu() {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('active'); // Toggle the 'active' class to show/hide
+}
+
+
+
+document.getElementById('tryNowButton').addEventListener('click', function() {
+        window.location.href = '#uploadForm'
+    });
+

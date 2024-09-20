@@ -2,13 +2,9 @@ body {
     font-family: Arial, sans-serif;
     background-color: #1c1c1c;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
-    position: relative;
-    z-index: 1;
+    padding-top: 90px; /* Space for fixed navbar */
+    
 }
 
 body::before {
@@ -25,27 +21,44 @@ body::before {
     z-index: -1;
 }
 
+
+
+
 .container {
     text-align: center;
+    width: 57%;
+    margin: 25px auto;
     background-color: rgba(51, 51, 51, 0.8);
     padding: 20px;
     border-radius: 10px;
-    width: 50%;
-    position: relative;
-    z-index: 1;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-h1, h2 {
+.container:hover {
+    transform: translateY(-10px) scale(1.05); /* Floating effect on hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* Shadow deepens on hover */
+}
+
+h1 {
     color: #4381de;
 }
 
-.upload-section, .result-section {
-    margin-top: 20px;
+
+
+.upload-section,.result-section  {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content horizontally */
+    justify-content: center; /* Centers the content vertically */
+    margin-top: 30px;
 }
 
 input[type="file"] {
     padding: 10px;
     margin-top: 10px;
+    width: auto; /* Adjust width so it's not 100% */
+    text-align: center; /* Ensures the text inside is centered */
 }
 
 button {
@@ -63,7 +76,7 @@ button {
 button:hover {
     background-color: white;
     color: #4381de;
-    transform: scale(1.1);
+    transform: scale(1.1); /* Button scales up on hover */
 }
 
 .result-section {
@@ -76,4 +89,444 @@ button:hover {
 #result {
     font-size: 18px;
     margin-top: 10px;
+}
+
+
+.header {
+    background-image: url('background\ img.jpeg'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire header area */
+    background-position: center; /* Center the image */
+    padding: 60px 20px; /* Add some padding */
+    text-align: center; /* Center the text */
+    color: white; /* Text color */
+    border-radius: 10px; /* Optional: add border radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Optional: shadow effect */
+}
+
+.header h1 {
+    font-size: 2.5em; /* Adjust size as needed */
+}
+
+.header p {
+    font-size: 1.2em; /* Adjust size as needed */
+    margin-top: 10px; /* Space between title and tagline */
+}
+
+/* Container to center the content */
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Styling for the site title */
+.site-title {
+    font-family: 'Poppins', sans-serif; /* Professional, modern font */
+    font-weight: 700; /* Bold weight */
+    font-size: 3rem; /* Large font size for impact */
+    margin: 0; /* Remove margin */
+    color: #00b4d8; /* Accent color for the title */
+}
+
+/* Styling for the tagline */
+.tagline {
+    font-family: 'Roboto', sans-serif; /* Secondary font for readability */
+    font-weight: 300; /* Light font for contrast with the title */
+    font-size: 1.5rem; /* Slightly smaller font size */
+    margin-top: 15px; /* Space between title and tagline */
+    color: #ccc; /* Soft contrast for the tagline */
+}
+
+/* Add responsive design */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 2.5rem;
+    }
+    .tagline {
+        font-size: 1.2rem;
+    }
+}
+
+/* Features Section */
+.features {
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for contrast */
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.features h2 {
+    color: #4381de;
+    margin-bottom: 20px;
+}
+
+.features-grid {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .features-grid {
+        flex-direction: row; /* Side by side on larger screens */
+    }
+}
+
+.feature {
+    background-color: rgba(51, 51, 51, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+.feature h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    color: #cccccc;
+    line-height: 1.5;
+}
+
+.feature:hover {
+    background-color: #2b2b2b; 
+    transform: translateY(-10px) scale(1.05); /* Floating effect */
+}
+
+/* How It Works Section */
+.how-it-works {
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for contrast */
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.how-it-works h2 {
+    color: #4381de;
+    margin-bottom: 20px;
+}
+
+/* Container for steps */
+.how-it-works .steps {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; /* Space between steps */
+}
+
+@media (min-width: 768px) {
+    .how-it-works .steps {
+        flex-direction: row; /* Side by side on larger screens */
+        flex-wrap: wrap; /* Allow wrapping of items */
+    }
+}
+
+.step {
+    background-color: rgba(51, 51, 51, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, background-color 0.4s ease;
+    flex: 1; /* Allow flex growth */
+    min-width: 250px; /* Minimum width for responsive design */
+}
+
+.step h3 {
+    color: #ffffff; /* White text for step titles */
+    margin-bottom: 10px;
+}
+
+.step p {
+    color: #cccccc; /* Light gray text for step descriptions */
+    line-height: 1.5;
+}
+
+.step:hover {
+    background-color: #2b2b2b; /* Darker background on hover */
+    transform: translateY(-10px) scale(1.05); /* Floating effect */
+}
+
+
+/* ////////////////// */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 7px;
+    background-color: rgba(63, 81, 181, 0.9);
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 5px;
+}
+
+.nav-links li a {
+    font-size: large;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px; 
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #361700; 
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px; 
+    transform: scale(1.05);
+}
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(63, 81, 181, 0.9);
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block; 
+    }
+}
+
+/* ////////////////// */
+.footer {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 2px solid #4381de;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+.footer-section {
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    color: #4381de;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    font-size: 14px;
+    color: #cccccc;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #4381de;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #4381de;
+    padding-top: 10px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #cccccc;
+}
+
+
+/* ///////Feedback css */
+.email-section,
+.phone-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3{
+    color: #4381de;
+}
+
+span{
+    color: azure;
+}
+.email-item,
+.phone-section span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.email-item i,
+.phone-section i {
+    margin-right: 10px;
+    color: #539ccd;
+}
+
+p {
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.email-address{
+    color: #c5a099;
+} 
+
+button {
+    background-color: #4381de;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.6s ease, background-color 0.6s ease;
+}
+
+button:hover {
+    color: #4381de;
+    background-color: white;
+    transform: scale(1.1);
+}
+
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 20px; 
+    border: 2px solid #4381de;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #80b461; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly lighter background on focus */
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing only */
+    min-height: 100px; /* Minimum height */
+}
+
+/* ///////////About CSS */
+.about-developers {
+    background-color: rgba(51, 51, 51, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.about-developers h2 {
+    color: #4381de;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.developer-grid {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 20px;
+}
+
+.developer-card {
+    background-color: rgba(68, 68, 68, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.5s ease, background-color 0.5s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    cursor: pointer;
+}
+
+.developer-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    background-color: rgba(68, 68, 68, 1);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
+}
+
+.developer-card .card-content {
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+.developer-card h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.developer-card p {
+    color: #cccccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .developer-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .developer-grid {
+        grid-template-columns: 1fr; /* One column on small screens */
+    }
 }
