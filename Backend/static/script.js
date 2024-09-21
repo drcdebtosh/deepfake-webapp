@@ -51,3 +51,55 @@ document.getElementById('tryNowButton').addEventListener('click', function() {
         window.location.href = '#uploadForm'
     });
 
+// feedback form submission 
+document.addEventListener("DOMContentLoaded", function() {
+    const feedbackForm = document.getElementById("feedbackForm");
+
+    if (feedbackForm) {
+        feedbackForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Capture form input values
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            // AJAX request to Flask backend
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "/feedback", true);
+            xxhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    let responseMessage = "";
+                    if (xhr.status === 200) {
+                        responseMessage = "Thank you for your feedback!";
+                        feedbackForm.reset();
+                    } else {
+                        responseMessage = "An error occurred. Please try again.";
+                    }
+                    document.getElementById("formFeedback").innerText = responseMessage;
+                }
+            };
+
+            let data = JSON.stringify({
+                "name": name,
+                "email": email,
+                "message": message
+            });
+
+            xhr.send(data);
+        });
+    } else {
+        console.error("Feedback form not found");
+    }
+});
+
+
+
+
+// function showFlashMessage() {
+//     const flashMessage = '{{ get_flashed_messages()[0] }}'; // Get the flash message
+//     if (flashMessage) {
+//         alert(flashMessage); // Display it (can be customized to display in a better way)
+//     }
+// }

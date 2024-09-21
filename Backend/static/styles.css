@@ -93,7 +93,7 @@ button:hover {
 
 
 .header {
-    background-image: url('background\ img.jpeg'); /* Replace with your image path */
+    /* background-image: url('background\ img.jpeg'); Replace with your image path */
     background-size: cover; /* Cover the entire header area */
     background-position: center; /* Center the image */
     padding: 60px 20px; /* Add some padding */

@@ -202,6 +202,50 @@ def upload_video():
 from flask import Flask, render_template
 
 
+# feedback form backend
+
+from flask import Flask, request, jsonify, render_template, redirect, url_for, flash
+from flask_mail import Mail, Message
+
+app.secret_key = 'sfhdflsnelth454654knfhg'  # Needed for flashing messages
+
+# Configure Flask-Mail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = 'debatoshofficial85@gmail.com'  # Your Gmail address
+app.config['MAIL_PASSWORD'] = 'yfar oiox mgjw jcmm'  # App password
+app.config['MAIL_DEFAULT_SENDER'] = 'debatoshofficial85@gmail.com'  # Sender email
+
+mail = Mail(app)
+
+@app.route('/feedback', methods=['GET', 'POST'])
+def feedback():
+    if request.method == 'POST':
+        data = request.get_json()
+        if not data:
+            return jsonify({"message": "No data provided"}), 400
+
+        name = data.get('name')
+        email = data.get('email')
+        message = data.get('message')
+
+        msg = Message(
+            subject="New Feedback Received",
+            recipients=["debatoshofficial85@gmail.com"],
+            body=f"Feedback from {name} ({email}):\n\n{message}",
+            reply_to=email
+        )
+
+        try:
+            mail.send(msg)
+            flash(f"Thank you, {name}! Your feedback has been received.", "success")
+        except Exception as e:
+            flash("An error occurred while sending your feedback. Please try again later.", "error")
+
+        return redirect(url_for('feedback'))  # Redirect to the same feedback page
+
+    return render_template('feedback.html')
 
 @app.route('/')
 def home():
@@ -210,10 +254,6 @@ def home():
 @app.route('/about')
 def about():
     return render_template('about.html')
-
-@app.route('/feedback')
-def feedback():
-    return render_template('feedback.html')
 
 # Run the Flask server
 if __name__ == '__main__':
