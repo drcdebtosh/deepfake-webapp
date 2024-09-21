@@ -250,6 +250,41 @@ button:hover {
 
 
 /* ////////////////// */
+ /* General styling for the logo */
+ .logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px; /* Adjust size for desktop */
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(#4381de); /* Gradient background */
+    padding: 10px 13px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-align: center;
+    letter-spacing: 2px; /* Spacing between letters */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect */
+.logo:hover {
+    transform: scale(1.05); /* Slight scale-up on hover */
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 36px; /* Smaller text size for tablets */
+        padding: 15px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 28px; /* Even smaller for mobile */
+        padding: 10px 20px;
+    }
+}
 
 .navbar {
     display: flex;
